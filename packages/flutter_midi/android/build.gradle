@@ -34,6 +34,11 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
 }
 
 dependencies {

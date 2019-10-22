@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'local_storage.dart';
+import 'android_native_bridge.dart';
 
 class FlutterMidi {
   static const MethodChannel _channel = MethodChannel('flutter_midi');
@@ -18,7 +19,10 @@ class FlutterMidi {
     final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
     mapData["path"] = _file.path;
     print("Path => ${_file.path}");
-    final String result = await _channel.invokeMethod('prepare_midi', mapData);
+    final String result =
+      await Platform.isAndroid
+        ? AndroidNativeBridge.prepareMidi(_file.path)
+        : _channel.invokeMethod<String>('prepare_midi', mapData);
     print("Result: $result");
     return result;
   }
@@ -40,7 +44,10 @@ class FlutterMidi {
 
   /// Unmute the device temporarly even if the mute switch is on or toggled in settings.
   static Future<String> unmute() async {
-    final String result = await _channel.invokeMethod('unmute');
+    final String result =
+      await Platform.isAndroid
+        ? ''
+        : _channel.invokeMethod('unmute');
     return result;
   }
 
@@ -52,9 +59,10 @@ class FlutterMidi {
     final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
     print("Pressed: $midi");
     mapData["note"] = midi;
-    final String result =
-        await _channel.invokeMethod('stop_midi_note', mapData);
-    return result;
+    return
+      await Platform.isAndroid
+        ? AndroidNativeBridge.stopMidiNote(0, midi, 0)
+        : _channel.invokeMethod('stop_midi_note', mapData);
   }
 
   /// Play a midi note from the sound_font.SF2 library bundled with the application.
@@ -66,6 +74,9 @@ class FlutterMidi {
     final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
     print("Pressed: $midi");
     mapData["note"] = midi;
-    return await _channel.invokeMethod('play_midi_note', mapData);
+    return
+      await Platform.isAndroid
+          ? AndroidNativeBridge.playMidiNote(0, midi, 0, 1.0)
+          : _channel.invokeMethod('play_midi_note', mapData);
   }
 }

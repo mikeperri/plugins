@@ -1,0 +1,6 @@
+[submodule "packages/flutter_midi/android/oboe"]
+	path = packages/flutter_midi/android/oboe
+	url = https://github.com/google/oboe
+[submodule "packages/flutter_midi/android/TinySoundFont"]
+	path = packages/flutter_midi/android/TinySoundFont
+	url = https://github.com/schellingb/TinySoundFont.git
