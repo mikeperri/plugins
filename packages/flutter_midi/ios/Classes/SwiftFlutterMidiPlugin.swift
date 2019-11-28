@@ -2,58 +2,62 @@ import Flutter
 import UIKit
 import AVFoundation
 
-public class SwiftFlutterMidiPlugin: NSObject, FlutterPlugin {
-  var message = "Please Send Message"
-  var _arguments = [String: Any]()
-  var au: AudioUnitMIDISynth!
+var au: AudioUnitMIDISynth?
 
-  public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_midi", binaryMessenger: registrar.messenger())
-    let instance = SwiftFlutterMidiPlugin()
-    registrar.addMethodCallDelegate(instance, channel: channel)
-  }
+@_cdecl("prepareMidi")
+public func prepareMidi(filenamePtr: UnsafePointer<CChar>) -> Int32 {
+    if let filename = String(validatingUTF8: filenamePtr) {
+        let url = URL(fileURLWithPath: filename)
+        au = AudioUnitMIDISynth(soundfont: url)
 
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    switch call.method {
-      case "prepare_midi":
-       var map = call.arguments as? Dictionary<String, String>
-       let data = map?["path"]
-      let url = URL(fileURLWithPath: data!)
-         au = AudioUnitMIDISynth(soundfont: url)
-          print("Valid URL: \(url)")
-        let message = "Prepared Sound Font"
-        result(message)
-    case "change_sound":
-        var map = call.arguments as? Dictionary<String, String>
-        let data = map?["path"]
-        let url = URL(fileURLWithPath: data!)
-        au.prepare(soundfont: url)
-        print("Valid URL: \(url)")
-        let message = "Prepared Sound Font"
-        result(message)
-      case "unmute":
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        } catch {
-            print(error)
-        }
-        let message = "unmuted Device"
-        result(message)
-      case "play_midi_note":
-        _arguments = call.arguments as! [String : Any];
-        let midi = _arguments["note"] as? Int
-        au.playPitch(midi:  midi ?? 60)
-        let message = "Playing: \(String(describing: midi!))"
-        result(message)
-      case "stop_midi_note":
-      _arguments = call.arguments as! [String : Any];
-       let midi = _arguments["note"] as? Int
-      au.stopPitch(midi:  midi ?? 60)
-        let message = "Stopped: \(String(describing: midi!))"
-        result(message)
-      default:
-        result(FlutterMethodNotImplemented)
-        break
+        return 0
+    } else {
+        return 1
     }
-  }
+}
+
+@_cdecl("changeSound")
+public func changeSound(filenamePtr: UnsafePointer<CChar>) -> Int32 {
+    if let filename = String(validatingUTF8: filenamePtr), let au = au {
+        let url = URL(fileURLWithPath: filename)
+        au.prepare(soundfont: url)
+
+        return 0
+    } else {
+        return 1
+    }
+}
+
+@_cdecl("unmute")
+public func unmute() -> Int32 {
+    do {
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+    } catch {
+        print(error)
+        return 1
+    }
+
+    return 0
+}
+
+@_cdecl("noteOn")
+public func noteOn(patchIndex: UInt8, pitch: UInt8, delayMs: Int16, velocity: Float) -> Int32 {
+    if let au = au {
+        au.playPitch(midi: Int(pitch))
+
+        return 0
+    } else {
+        return 1
+    }
+}
+
+@_cdecl("noteOff")
+public func noteOff(patchIndex: UInt8, pitch: UInt8, delayMs: Int64) -> Int32 {
+    if let au = au {
+        au.stopPitch(midi: Int(pitch))
+
+        return 0
+    } else {
+        return 1
+    }
 }

@@ -1,0 +1,14 @@
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/install/local.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/list_install_components.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/install.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/install/strip.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/CMakeFiles/android_tsf_player.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/edit_cache.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/rebuild_cache.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/list_install_components.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/install.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/install/strip.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/install/local.dir
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86/oboe/CMakeFiles/oboe.dir

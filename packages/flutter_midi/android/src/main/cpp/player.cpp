@@ -176,7 +176,7 @@ extern "C" {
     // }
 
     __attribute__((visibility("default"))) __attribute__((used))
-    int32_t load_soundfont(const char* filename) {
+    int32_t prepareMidi(const char* filename) {
         player = std::make_unique<AndroidTsfPlayer>();
         player->loadSoundfont(filename);
 
@@ -184,14 +184,14 @@ extern "C" {
     }
 
     __attribute__((visibility("default"))) __attribute__((used))
-    int32_t note_on(uint8_t patchIndex, uint8_t pitch, int64_t delayMs, float velocity) {
+    int32_t noteOn(uint8_t patchIndex, uint8_t pitch, int64_t delayMs, float velocity) {
         player->noteOn(patchIndex, pitch, delayMs, velocity);
 
         return 0;
     }
 
     __attribute__((visibility("default"))) __attribute__((used))
-    int32_t note_off(uint8_t patchIndex, uint8_t pitch, int64_t delayMs) {
+    int32_t noteOff(uint8_t patchIndex, uint8_t pitch, int64_t delayMs) {
         player->noteOff(patchIndex, pitch, delayMs);
 
         return 0;

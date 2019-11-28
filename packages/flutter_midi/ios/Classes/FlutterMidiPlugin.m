@@ -3,6 +3,5 @@
 
 @implementation FlutterMidiPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftFlutterMidiPlugin registerWithRegistrar:registrar];
 }
 @end

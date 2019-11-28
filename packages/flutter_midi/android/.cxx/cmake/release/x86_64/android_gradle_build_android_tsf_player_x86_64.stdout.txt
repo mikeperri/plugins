@@ -1,0 +1,56 @@
+[1/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/aaudio/AAudioLoader.cpp.o
+[2/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/aaudio/AudioStreamAAudio.cpp.o
+[3/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/AudioSourceCaller.cpp.o
+[4/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/AudioStream.cpp.o
+[5/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/AudioStreamBuilder.cpp.o
+[6/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/DataConversionFlowGraph.cpp.o
+[7/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/FilterAudioStream.cpp.o
+[8/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/FixedBlockAdapter.cpp.o
+[9/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/FixedBlockReader.cpp.o
+[10/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/FixedBlockWriter.cpp.o
+[11/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/LatencyTuner.cpp.o
+[12/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/SourceFloatCaller.cpp.o
+[13/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/SourceI16Caller.cpp.o
+[14/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/Utilities.cpp.o
+[15/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/QuirksManager.cpp.o
+[16/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/fifo/FifoBuffer.cpp.o
+[17/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/fifo/FifoController.cpp.o
+[18/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/fifo/FifoControllerBase.cpp.o
+[19/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/fifo/FifoControllerIndirect.cpp.o
+[20/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/AudioProcessorBase.cpp.o
+[21/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/ClipToRange.cpp.o
+[22/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/ManyToMultiConverter.cpp.o
+[23/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/MonoToMultiConverter.cpp.o
+[24/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/RampLinear.cpp.o
+[25/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SampleRateConverter.cpp.o
+[26/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SinkFloat.cpp.o
+[27/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SinkI16.cpp.o
+[28/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SinkI24.cpp.o
+[29/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SourceFloat.cpp.o
+[30/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SourceI16.cpp.o
+[31/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/SourceI24.cpp.o
+[32/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/IntegerRatio.cpp.o
+[33/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/LinearResampler.cpp.o
+[34/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/MultiChannelResampler.cpp.o
+[35/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/PolyphaseResampler.cpp.o
+[36/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/PolyphaseResamplerMono.cpp.o
+[37/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/PolyphaseResamplerStereo.cpp.o
+[38/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/SincResampler.cpp.o
+[39/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/flowgraph/resampler/SincResamplerStereo.cpp.o
+[40/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/AudioInputStreamOpenSLES.cpp.o
+[41/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/AudioOutputStreamOpenSLES.cpp.o
+[42/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/AudioStreamBuffered.cpp.o
+[43/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/AudioStreamOpenSLES.cpp.o
+[44/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/EngineOpenSLES.cpp.o
+[45/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/OpenSLESUtilities.cpp.o
+[46/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/opensles/OutputMixerOpenSLES.cpp.o
+[47/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/StabilizedCallback.cpp.o
+[48/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/Trace.cpp.o
+[49/52] Building CXX object oboe/CMakeFiles/oboe.dir/src/common/Version.cpp.o
+[50/52] Linking CXX static library oboe/liboboe.a
+[51/52] Building CXX object CMakeFiles/android_tsf_player.dir/src/main/cpp/player.cpp.o
+/Users/mp/dev/plugins/packages/flutter_midi/android/src/main/cpp/player.cpp:83:115: warning: format specifies type 'int' but the argument has type 'tsf *' [-Wformat]
+        __android_log_print(ANDROID_LOG_INFO, "FLUTTER_LOW_LATENCY_AUDIO_PLUGIN", "Called tsf_load_filename, %i", mTsf);
+                                                                                                             ~~   ^~~~
+1 warning generated.
+[52/52] Linking CXX shared library /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/release/obj/x86_64/libandroid_tsf_player.so

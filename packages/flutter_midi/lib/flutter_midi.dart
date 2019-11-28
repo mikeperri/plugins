@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'local_storage.dart';
-import 'android_native_bridge.dart';
+import 'native_bridge.dart';
 
 class FlutterMidi {
-  static const MethodChannel _channel = MethodChannel('flutter_midi');
-
   /// Needed so that the sound font is loaded
   /// On iOS make sure to include the sound_font.SF2 in the Runner folder.
   /// This does not work in the simulator.
@@ -16,15 +14,9 @@ class FlutterMidi {
       {@required ByteData sf2, String name = "instrument.sf2"}) async {
     File _file = await writeToFile(sf2, name: name);
 
-    final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
-    mapData["path"] = _file.path;
-    print("Path => ${_file.path}");
-    final String result =
-      await Platform.isAndroid
-        ? AndroidNativeBridge.prepareMidi(_file.path)
-        : _channel.invokeMethod<String>('prepare_midi', mapData);
-    print("Result: $result");
-    return result;
+    NativeBridge.prepareMidi(_file.path);
+
+    return '';
   }
 
   /// Needed so that the sound font is loaded
@@ -34,21 +26,16 @@ class FlutterMidi {
       {@required ByteData sf2, String name = "instrument.sf2"}) async {
     File _file = await writeToFile(sf2, name: name);
 
-    final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
-    mapData["path"] = _file.path;
-    print("Path => ${_file.path}");
-    final String result = await _channel.invokeMethod('change_sound', mapData);
-    print("Result: $result");
-    return result;
+    NativeBridge.changeSound(_file.path);
+
+    return '';
   }
 
   /// Unmute the device temporarly even if the mute switch is on or toggled in settings.
   static Future<String> unmute() async {
-    final String result =
-      await Platform.isAndroid
-        ? ''
-        : _channel.invokeMethod('unmute');
-    return result;
+    NativeBridge.unmute();
+
+    return '';
   }
 
   /// Use this when stopping the sound onTouchUp or to cancel a long file.
@@ -56,13 +43,9 @@ class FlutterMidi {
   static Future<String> stopMidiNote({
     @required int midi,
   }) async {
-    final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
-    print("Pressed: $midi");
-    mapData["note"] = midi;
-    return
-      await Platform.isAndroid
-        ? AndroidNativeBridge.stopMidiNote(0, midi, 0)
-        : _channel.invokeMethod('stop_midi_note', mapData);
+    NativeBridge.stopMidiNote(0, midi, 0);
+
+    return '';
   }
 
   /// Play a midi note from the sound_font.SF2 library bundled with the application.
@@ -71,12 +54,8 @@ class FlutterMidi {
   static Future<String> playMidiNote({
     @required int midi,
   }) async {
-    final Map<dynamic, dynamic> mapData = <dynamic, dynamic>{};
-    print("Pressed: $midi");
-    mapData["note"] = midi;
-    return
-      await Platform.isAndroid
-          ? AndroidNativeBridge.playMidiNote(0, midi, 0, 1.0)
-          : _channel.invokeMethod('play_midi_note', mapData);
+    NativeBridge.playMidiNote(0, midi, 0, 1.0);
+
+    return '';
   }
 }

@@ -1,0 +1,8 @@
+Executable : /Users/mp/Library/Android/sdk/cmake/3.6.4111459/bin/cmake
+arguments : 
+--build
+/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/release/x86
+--target
+android_tsf_player
+jvmArgs : 
+

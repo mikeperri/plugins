@@ -1,0 +1,23 @@
+{
+  "buildFiles": [
+    "/Users/mp/dev/plugins/packages/flutter_midi/android/CMakeLists.txt",
+    "/Users/mp/dev/plugins/packages/flutter_midi/android/oboe/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/mp/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/release/arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "android_tsf_player-Release-arm64-v8a": {
+      "artifactName": "android_tsf_player",
+      "buildCommand": "/Users/mp/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/release/arm64-v8a --target android_tsf_player",
+      "abi": "arm64-v8a",
+      "output": "/Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/release/obj/arm64-v8a/libandroid_tsf_player.so"
+    },
+    "oboe-Release-arm64-v8a": {
+      "artifactName": "oboe",
+      "buildCommand": "/Users/mp/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/release/arm64-v8a --target oboe",
+      "abi": "arm64-v8a",
+      "output": "/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/release/arm64-v8a/oboe/liboboe.a"
+    }
+  }
+}
