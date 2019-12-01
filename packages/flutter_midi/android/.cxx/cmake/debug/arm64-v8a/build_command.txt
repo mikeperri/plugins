@@ -4,7 +4,7 @@ arguments :
 -B/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/arm64-v8a
 -DANDROID_ABI=arm64-v8a
 -DANDROID_PLATFORM=android-16
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/arm64-v8a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/arm64-v8a
 -DCMAKE_BUILD_TYPE=Debug
 -DANDROID_NDK=/Users/mp/Library/Android/sdk/ndk/20.1.5948944
 -DCMAKE_TOOLCHAIN_FILE=/Users/mp/Library/Android/sdk/ndk/20.1.5948944/build/cmake/android.toolchain.cmake

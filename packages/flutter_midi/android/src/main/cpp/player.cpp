@@ -53,6 +53,8 @@ public:
             } else if (mNextEvent.type == NoteOff) {
                 // __android_log_print(ANDROID_LOG_INFO, "FLUTTER_LOW_LATENCY_AUDIO_PLUGIN", "Note off");
                 tsf_note_off(mTsf, mNextEvent.patchIndex, mNextEvent.pitch);
+            } else if (mNextEvent.type == ChangeSoundFont) {
+                mTsf = tsf_load_filename(mNextEvent.filename);
             }
 
             framesRendered += framesUntilEvent;
@@ -77,7 +79,7 @@ public:
         return oboe::DataCallbackResult::Continue;
     }
 
-    void loadSoundfont(const char* filename) {
+    void init(const char* filename) {
         __android_log_print(ANDROID_LOG_INFO, "FLUTTER_LOW_LATENCY_AUDIO_PLUGIN", "Starting load sound font, filename %s", filename);
         mTsf = tsf_load_filename(filename);
         __android_log_print(ANDROID_LOG_INFO, "FLUTTER_LOW_LATENCY_AUDIO_PLUGIN", "Called tsf_load_filename, %i", mTsf);
@@ -87,9 +89,14 @@ public:
         outStream->requestStart();
     }
 
-    void noteOn(uint8_t patchIndex, uint8_t pitch, int64_t delayMs, float velocity) {
-        // tsf_note_on(mTsf, patchIndex, pitch, velocity);
+    void changeSoundFont(const char* filename, int64_t delayMs) {
+        ScheduledEvent event;
+        event.frame = mCurrentFrame + millisToFrames(delayMs);
+        event.type = ChangeSoundFont;
+        event.filename = filename;
+    }
 
+    void noteOn(uint8_t patchIndex, uint8_t pitch, int64_t delayMs, float velocity) {
         ScheduledEvent event;
         event.frame = mCurrentFrame + millisToFrames(delayMs);
         event.type = NoteOn;
@@ -103,8 +110,6 @@ public:
     }
 
     void noteOff(uint8_t patchIndex, uint8_t pitch, int64_t delayMs) {
-        // tsf_note_off(mTsf, patchIndex, pitch);
-
         ScheduledEvent event;
         event.frame = mCurrentFrame + millisToFrames(delayMs);
         event.type = NoteOff;
@@ -178,22 +183,46 @@ extern "C" {
     __attribute__((visibility("default"))) __attribute__((used))
     int32_t prepareMidi(const char* filename) {
         player = std::make_unique<AndroidTsfPlayer>();
-        player->loadSoundfont(filename);
+        player->init(filename);
 
+        return 0;
+    }
+
+    __attribute__((visibility("default"))) __attribute__((used))
+    int32_t changeSound(const char* filename, int64_t delayMs) {
+        if (player != NULL) {
+            player->changeSoundFont(filename, delayMs);
+
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    __attribute__((visibility("default"))) __attribute__((used))
+    int32_t unmute() {
         return 0;
     }
 
     __attribute__((visibility("default"))) __attribute__((used))
     int32_t noteOn(uint8_t patchIndex, uint8_t pitch, int64_t delayMs, float velocity) {
-        player->noteOn(patchIndex, pitch, delayMs, velocity);
+        if (player != NULL) {
+            player->noteOn(patchIndex, pitch, delayMs, velocity);
 
-        return 0;
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     __attribute__((visibility("default"))) __attribute__((used))
     int32_t noteOff(uint8_t patchIndex, uint8_t pitch, int64_t delayMs) {
-        player->noteOff(patchIndex, pitch, delayMs);
+        if (player != NULL) {
+            player->noteOff(patchIndex, pitch, delayMs);
 
-        return 0;
+            return 0;
+        } else {
+            return 1;
+        }
     }
 }

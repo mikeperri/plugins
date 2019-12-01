@@ -105,9 +105,9 @@ build CMakeFiles/android_tsf_player.dir/src/main/cpp/player.cpp.o: CXX_COMPILER_
 
 
 #############################################
-# Link the shared library /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
+# Link the shared library /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
 
-build /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so: CXX_SHARED_LIBRARY_LINKER__android_tsf_player CMakeFiles/android_tsf_player.dir/src/main/cpp/player.cpp.o | oboe/liboboe.a /Users/mp/Library/Android/sdk/ndk/20.1.5948944/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/16/libandroid.so || oboe/liboboe.a
+build /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so: CXX_SHARED_LIBRARY_LINKER__android_tsf_player CMakeFiles/android_tsf_player.dir/src/main/cpp/player.cpp.o | oboe/liboboe.a /Users/mp/Library/Android/sdk/ndk/20.1.5948944/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/16/libandroid.so || oboe/liboboe.a
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack
   LINK_LIBRARIES = oboe/liboboe.a -landroid -llog -lOpenSLES -latomic -lm
@@ -116,7 +116,7 @@ build /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmak
   PRE_LINK = :
   SONAME = libandroid_tsf_player.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
+  TARGET_FILE = /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
   TARGET_PDB = android_tsf_player.so.dbg
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -536,8 +536,8 @@ build oboe/liboboe.a: CXX_STATIC_LIBRARY_LINKER__oboe oboe/CMakeFiles/oboe.dir/s
 # =============================================================================
 # Target aliases.
 
-build android_tsf_player: phony /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
-build libandroid_tsf_player.so: phony /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
+build android_tsf_player: phony /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
+build libandroid_tsf_player.so: phony /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so
 build liboboe.a: phony oboe/liboboe.a
 build oboe: phony oboe/liboboe.a
 # =============================================================================
@@ -557,7 +557,7 @@ build  oboe/all: phony oboe
 #############################################
 # The main all target.
 
-build all: phony /Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so oboe/liboboe.a
+build all: phony /Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86/libandroid_tsf_player.so oboe/liboboe.a
 
 #############################################
 # Make the all target the default.

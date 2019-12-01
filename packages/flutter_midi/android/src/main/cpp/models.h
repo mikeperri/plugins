@@ -8,7 +8,8 @@ struct CNote {
 
 enum EventType {
     NoteOn,
-    NoteOff
+    NoteOff,
+    ChangeSoundFont
 };
 
 struct ScheduledEvent {
@@ -18,4 +19,5 @@ struct ScheduledEvent {
     uint8_t patchIndex;
     uint8_t pitch;
     float velocity;
+    const char* filename;
 };

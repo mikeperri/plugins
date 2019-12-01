@@ -14,6 +14,20 @@ final nPrepareMidi =
       int Function(Pointer<Utf8>)
     >("prepareMidi");
 
+final nChangeSound =
+  nativeLib
+    .lookupFunction<
+      Int32 Function(Pointer<Utf8>, Int64),
+      int Function(Pointer<Utf8>, int)
+    >("changeSound");
+
+final nUnmute =
+  nativeLib
+    .lookupFunction<
+      Int32 Function(),
+      int Function()
+    >("unmute");
+
 final nNoteOn =
   nativeLib
     .lookupFunction<
@@ -29,40 +43,27 @@ final nNoteOff =
     >("noteOff");
 
 class NativeBridge {
-  // static const MethodChannel _channel =
-  //   const MethodChannel('flutter_low_latency_audio');
-
-  static String prepareMidi(String soundfontPath) {
-    // _setupAssetManager();
+  static int prepareMidi(String soundfontPath) {
     var utf8Path = Utf8.toUtf8(soundfontPath);
 
-    var result = nPrepareMidi(utf8Path);
-    print('prepare midi result: ' + result.toString());
-
-    return '';
+    return nPrepareMidi(utf8Path);
   }
 
-  static String changeSound(String soundfontPath) {
+  static int changeSound(String soundfontPath) {
+    var utf8Path = Utf8.toUtf8(soundfontPath);
 
-    return '';
+    return nChangeSound(utf8Path, 0);
   }
 
-  static String unmute() {
-
-    return '';
+  static int unmute() {
+    return nUnmute();
   }
 
-  static String playMidiNote(int patchIndex, int pitch, int delayMs, num velocity) {
-    nNoteOn(patchIndex, pitch, delayMs, velocity);
-    return '';
+  static int playMidiNote(int patchIndex, int pitch, int delayMs, num velocity) {
+    return nNoteOn(patchIndex, pitch, delayMs, velocity);
   }
 
-  static String stopMidiNote(int patchIndex, int pitch, int delayMs) {
-    nNoteOff(patchIndex, pitch, delayMs);
-    return '';
+  static int stopMidiNote(int patchIndex, int pitch, int delayMs) {
+    return nNoteOff(patchIndex, pitch, delayMs);
   }
-
-  // Future<void> _setupAssetManager() async {
-  //   return await _channel.invokeMethod('setupAssetManager');
-  // }
 }

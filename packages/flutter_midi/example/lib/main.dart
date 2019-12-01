@@ -67,25 +67,25 @@ class _MyAppState extends State<MyApp> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // DropdownButton<String>(
-            //   value: _value,
-            //   items: [
-            //     DropdownMenuItem(
-            //       child: Text("Soft Piano"),
-            //       value: "assets/sf2/SmallTimGM6mb.sf2",
-            //     ),
-            //     DropdownMenuItem(
-            //       child: Text("Loud Piano"),
-            //       value: "assets/sf2/Piano.SF2",
-            //     ),
-            //   ],
-            //   onChanged: (String value) {
-            //     setState(() {
-            //       _value = value;
-            //     });
-            //     load(_value);
-            //   },
-            // ),
+            DropdownButton<String>(
+              value: _value,
+              items: [
+                DropdownMenuItem(
+                  child: Text("Bass"),
+                  value: "assets/Bass.sf2",
+                ),
+                DropdownMenuItem(
+                  child: Text("Piano"),
+                  value: "assets/Piano.sf2",
+                ),
+              ],
+              onChanged: (String value) {
+                setState(() {
+                  _value = value;
+                });
+                load(_value);
+              },
+            ),
             RaisedButton(
               child: Text("Play C"),
               onPressed: () {

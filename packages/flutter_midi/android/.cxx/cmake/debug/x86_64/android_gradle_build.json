@@ -27,7 +27,7 @@
 					"workingDirectory" : "/Users/mp/dev/plugins/packages/flutter_midi/android/.cxx/cmake/debug/x86_64"
 				}
 			],
-			"output" : "/Users/mp/dev/tap_transcribe_flutter/build/flutter_midi/intermediates/cmake/debug/obj/x86_64/libandroid_tsf_player.so",
+			"output" : "/Users/mp/dev/plugins/packages/flutter_midi/example/build/flutter_midi/intermediates/cmake/debug/obj/x86_64/libandroid_tsf_player.so",
 			"toolchain" : "417806552413189629"
 		},
 		"oboe-Debug-x86_64" : 
