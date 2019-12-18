@@ -42,8 +42,9 @@ class FlutterMidi {
   /// Not needed if playing midi onTap.
   static Future<String> stopMidiNote({
     @required int midi,
+    int patchIndex,
   }) async {
-    NativeBridge.stopMidiNote(0, midi, 0);
+    NativeBridge.stopMidiNote(patchIndex != null ? patchIndex : 0, midi, 0);
 
     return '';
   }
@@ -53,8 +54,9 @@ class FlutterMidi {
   /// Multiple notes can be played at once as seperate calls.
   static Future<String> playMidiNote({
     @required int midi,
+    int patchIndex,
   }) async {
-    NativeBridge.playMidiNote(0, midi, 0, 1.0);
+    NativeBridge.playMidiNote(patchIndex != null ? patchIndex : 0, midi, 0, 1.0);
 
     return '';
   }
